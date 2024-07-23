@@ -21,6 +21,7 @@ Here you can find an overview from a new user's point of view:
 <br><br>
 
 https://github.com/user-attachments/assets/1569f255-e0df-4040-9c3f-5ab1dd054ae4
+
 <br>
 
 - By navigating through the lists of objects, the user will see that they are sorted by their first letter.
@@ -35,19 +36,21 @@ https://github.com/user-attachments/assets/1569f255-e0df-4040-9c3f-5ab1dd054ae4
 
 
 https://github.com/user-attachments/assets/0d6ff564-c7cf-4b53-8525-bcc96a6144a4
+
 <br>
 
 - Finally, the classic “About” and “Contact” pages allow the user to find out more about N.U.B, consult the terms of policy or contact the admin.
 
 ### Technologies Used
 <hr>
-<b>Backend:</b> Django
 
-<b>Frontend:</b> HTML, CSS (no frameworks or templates)
+- <b>Backend:</b> Django
 
-<b>Scripting:</b> JavaScript
+- <b>Frontend:</b> HTML, CSS (no frameworks or templates)
 
-<b>Database:</b> SQLite
+- <b>Scripting:</b> JavaScript
+
+- <b>Database:</b> SQLite
 
 ### Testing
 <hr>
@@ -133,5 +136,14 @@ N.U.B is continuously evolving, and here are some exciting features and improvem
 - **News Feed and Stories**: Create a news feed and a short video feature akin to Instagram Stories, enabling users to share moments and stay connected with the community in real-time.
 
 We are committed to enhancing the user experience and providing a platform that caters to the needs of the music community. Your feedback and suggestions are invaluable in shaping the future of N.U.B.
-<hr>
-Feel free to explore the code and contribute to the project. Your feedback and contributions are highly appreciated!
+<hr><br>
+Feel free to explore the code and contribute to the project.<br>Your feedback and contributions are highly appreciated!<br><br>
+To run the application locally, execute these commands:<br>
+
+- `git clone https://github.com/CLMNTDFR/N.U.B.git` <br>
+- `pip install -r requirements.txt` <br>
+- `cd django-web-app/merchex/` <br>
+- `python3 manage.py runserver` <br>
+<br><br>
+You can now visit the website on the `localhost8000` and make an account.<br>
+Have fun!
