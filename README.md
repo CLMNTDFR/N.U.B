@@ -14,7 +14,7 @@ For now, I've named this interface N.U.B for "North Underground Bands". Feel fre
 I am open to any suggestions for improvement!
 
 <hr>
-### Here you can find an overview from a new user's point of view:
+Here you can find an overview from a new user's point of view:
 - The user must create an account to access the content.
 - He can also edit his account, add a profile photo, or delete it.
 - He can also create objects (Bands / Merch / Events) and perform classic CRUD operations on the objects he owns.
