@@ -1,0 +1,50 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="title">Conversations</div>
+<hr style="border: none; height: 2px; background: linear-gradient(to right, #4b4b4b, #4b4b4b, #4b4b4b);">
+<ul class="conv-list">
+    {% for conversation_id, conversation in conversations.items %}
+    <li class="conv-list-item">
+        <a href="{% url 'message_detail' conversation.message.id %}">
+            <div class="conv-item">
+                {% with last_message=conversation.last_message %}
+                    {% if last_message.sender == request.user %}
+                        {% with other_user=last_message.recipient %}
+                            <div class="user-photo">
+                                {% if other_user.profile_photo %}
+                                    <img src="{{ other_user.profile_photo.url }}" alt="{{ other_user.username }}" class="user-photo-img">
+                                {% else %}
+                                    <img src="{% static 'listings/images/NO-PROFIL.png' %}" alt="{{ other_user.username }}" class="user-photo-img">
+                                {% endif %}
+                            </div>
+                            <div class="msg-info">
+                                <span class="user-name"><strong>{{ other_user.username }}</strong></span>
+                                <span class="msg-preview">{{ last_message.sender.username }}: {{ last_message.body|truncatechars:20 }} - {{ last_message.created_at|date:"g:i a" }}</span>
+                            </div>
+                        {% endwith %}
+                    {% else %}
+                        {% with other_user=last_message.sender %}
+                            <div class="user-photo">
+                                {% if other_user.profile_photo %}
+                                    <img src="{{ other_user.profile_photo.url }}" alt="{{ other_user.username }}" class="user-photo-img">
+                                {% else %}
+                                    <img src="{% static 'listings/images/NO-PROFIL.png' %}" alt="{{ other_user.username }}" class="user-photo-img">
+                                {% endif %}
+                            </div>
+                            <div class="msg-info">
+                                <span class="user-name"><strong>{{ other_user.username }}</strong></span>
+                                <span class="msg-preview">{{ last_message.sender.username }}: {{ last_message.body|truncatechars:20 }} - {{ last_message.created_at|date:"g:i a" }}</span>
+                            </div>
+                        {% endwith %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </a>
+    </li>
+    {% empty %}
+    <li class="conv-list-item">No conversations found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

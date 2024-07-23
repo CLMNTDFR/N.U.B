@@ -1,0 +1,69 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="page-name">Bands</div>
+{% for first_letter, bands in band_groups.items %}
+    <div class="title"><a id="{{ first_letter }}">{{ first_letter }}</a></div>
+    <hr style="border: none; height: 2px; background: linear-gradient(to right, black, red, black);">
+    <br>
+    <div class="horizontal-scroll-container">
+        <div class="horizontal-scroll">
+            {% for band in bands %}
+                <div class="band-item">
+                    <div class="like-counter">
+                        <span id="like-button-{{ band.id }}" onclick="likeBand('{{ band.id }}')" style="cursor: pointer;">
+                            <img src="{% if request.user in band.likes.all %}{% static 'listings/images/metal hand ON.svg' %}{% else %}{% static 'listings/images/metal hand OFF.svg' %}{% endif %}" style="height: 30px; vertical-align: middle;">
+                        </span>
+                        <span id="likes-{{ band.id }}" style="vertical-align: middle; font-size: 1em;">{{ band.likes.count }}</span>
+                    </div>
+                    <a href="{% url 'band_detail' band.id %}">
+                        <div class="image-container">
+                            <img src="{% if band.image %}{{ band.image.url }}{% else %}{% static 'listings/images/NO-PIC.png' %}{% endif %}" alt="{{ band.name }}">
+                        </div>
+                        <div class="band-name">{{ band.name }}</div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 16px;">
+            <button id="left-scroll-button" class="scroll-button" onclick="scrollHorizontally(-1)" style="font-size: 1.2rem; color: white; background-color: rgba(0, 0, 0, 0.5); border: none; padding: 4px 8px; margin: 0 25px; cursor: pointer; transition: color 0.3s ease-in-out;"><</button>
+            <button id="right-scroll-button" class="scroll-button" onclick="scrollHorizontally(1)" style="font-size: 1.2rem; color: white; background-color: rgba(0, 0, 0, 0.5); border: none; padding: 4px 8px; margin: 0 25px; cursor: pointer; transition: color 0.3s ease-in-out;">></button>
+        </div>
+    </div>
+    <br>
+{% endfor %}
+
+<script>
+function likeBand(bandId) {
+    fetch(`/bands/${bandId}/like/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            document.getElementById(`likes-${bandId}`).innerText = data.likes;
+            const likeButton = document.getElementById(`like-button-${bandId}`).querySelector('img');
+            if (data.action === 'like') {
+                likeButton.src = "{% static 'listings/images/metal hand ON.svg' %}";
+            } else if (data.action === 'unlike') {
+                likeButton.src = "{% static 'listings/images/metal hand OFF.svg' %}";
+            }
+        } else {
+            alert(data.message);
+        }
+    });
+}
+
+function scrollHorizontally(direction) {
+    const scrollContainer = document.querySelector('.horizontal-scroll');
+    const scrollAmount = 300;
+    scrollContainer.scrollLeft += direction * scrollAmount;
+}
+</script>
+
+{% endblock %}

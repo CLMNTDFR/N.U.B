@@ -1,0 +1,16 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<div class="form-container">
+    <div class="title">Create a New Band</div>
+
+    <form method="post" enctype="multipart/form-data">  <!-- Ajout de enctype="multipart/form-data" ici -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br><br>
+        <button type="submit" class="default-button">Save Band</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+<div class="form-container">
+    <div class="title">• Sign Up •</div><br>
+    <p class="introduction-text">Please sign up to create an account</p>
+    <br>
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                    <div class="help-text">{{ field.help_text }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <br><br>
+        <button type="submit" class="sign-up-button">Sign Up!</button>
+    </form>
+    <br>
+</div>
+{% endblock content %}

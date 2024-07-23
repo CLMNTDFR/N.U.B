@@ -1,0 +1,1766 @@
+/* Importation des polices de Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lekton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jaini&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Personnalisation de la scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Largeur de la scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #333; /* Couleur de fond de la piste */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555; /* Couleur de fond du thumb (la partie que vous déplacez) */
+  border-radius: 6px; /* Coins arrondis du thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777; /* Couleur de fond du thumb au survol */
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: thin; /* Largeur de la scrollbar */
+  scrollbar-color: #555 #333; /* Couleur du thumb et de la piste */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.a :visited {
+  color: #ffffff;
+}
+
+.underline {
+  text-decoration: underline;
+  font-weight: lighter;
+}
+
+.bandname {
+  font-family: "Jaini", cursive;
+  font-size: 2rem; /* Ajuste la taille du nom de groupe */
+  letter-spacing: 0.1em; /* Ajoute un espacement entre les lettres */
+  text-align: center; /* Centre le texte horizontalement */
+}
+
+.home {
+  font-family: "Jaini", cursive;
+  font-size: 3rem; /* Ajuste la taille du nom de groupe */
+  letter-spacing: 0.1em; /* Ajoute un espacement entre les lettres */
+  text-align: center; /* Centre le texte horizontalement */
+  margin: 0 0; /* Ajoute un peu de marge en haut et en bas */
+}
+
+.home-sub {
+  font-family: "Lekton", monospace;
+  font-size: 1.2rem; /* Ajuste la taille du nom de groupe */
+  letter-spacing: 0.1em; /* Ajoute un espacement entre les lettres */
+  text-align: center; /* Centre le texte horizontalement */
+  margin: 0 0; /* Ajoute un peu de marge en haut et en bas */
+}
+
+@media (max-width: 600px) {
+  .home,
+  .home-sub {
+    width: 80%; /* Les éléments occupent 80% de la largeur de l'écran */
+    margin-left: auto; /* Centre les éléments horizontalement */
+    margin-right: auto; /* Centre les éléments horizontalement */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  }
+
+  .home {
+    font-size: 2.4rem; /* Réduit la taille de la police pour .home */
+  }
+
+  .home-sub {
+    font-size: 0.96rem; /* Réduit la taille de la police pour .home-sub */
+  }
+}
+
+.Welcome {
+    width: 75%; /* Largeur du paragraphe à 60% de la largeur de l'écran */
+    margin: 0 auto; /* Centre le paragraphe horizontalement */
+    text-align: center; /* Centre le texte horizontalement */
+    background-color: #000000; /* Fond gris foncé */
+    color: #fff; /* Texte en blanc pour une meilleure lisibilité sur fond sombre */
+    padding: 20px; /* Espace interne pour l'espacement du texte par rapport au fond */
+    border-radius: 5px;
+}
+
+.title {
+  font-family: "Jaini", cursive;
+  font-size: 2rem; /* Ajuste la taille du nom de groupe */
+  letter-spacing: 0.1em; /* Ajoute un espacement entre les lettres */
+  margin: 0 auto; /* Ajoute un peu de marge en haut et en bas */
+  text-align: center;
+}
+
+.introduction-text {
+  width: 60%; /* Largeur du paragraphe à 60% de la largeur de l'écran */
+  margin: 0 auto; /* Centre le paragraphe horizontalement */
+  text-align: center; /* Centre le texte horizontalement */
+  background-color: #141414; /* Fond gris foncé */
+  color: #fff; /* Texte en blanc pour une meilleure lisibilité sur fond sombre */
+  padding: 20px; /* Espace interne pour l'espacement du texte par rapport au fond */
+  border-radius: 5px;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: scroll;
+    gap: 16px; /* Ajoute de l'espace entre les éléments */
+    padding: 16px 0;
+}
+
+/* Styles par défaut pour les écrans de téléphone */
+.band-item {
+    flex: 0 0 28%; /* Chaque élément occupe 28% de la largeur de l'écran */
+    text-align: center;
+}
+
+.like-counter {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+/* Media query pour les écrans d'ordinateur */
+@media (min-width: 900px) {
+    .band-item {
+        flex: 0 0 18%; /* Chaque élément occupe 18% de la largeur de l'écran */
+    }
+
+    .like-counter {
+        font-size: 0.7rem; /* Réduire la taille de la police pour les écrans plus grands */
+    }
+
+    .like-counter img {
+        height: 17px; /* Réduire la taille de l'icône SVG pour les écrans plus grands */
+    }
+}
+
+.image-container {
+    width: 100%; /* Occupe toute la largeur du conteneur parent */
+    padding-top: 100%; /* Pour maintenir le format carré (1:1) */
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Rogne l'image pour qu'elle remplisse le conteneur tout en conservant son rapport d'aspect */
+}
+
+.band-name {
+    font-size: 0.8rem; /* Ajuste la taille du nom du groupe */
+    margin-top: 8px;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto; /* Permet le défilement horizontal */
+    scrollbar-width: none; /* Masque la barre de défilement pour Firefox */
+    -ms-overflow-style: none; /* Masque la barre de défilement pour IE et Edge */
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none; /* Masque la barre de défilement pour Chrome, Safari et Opera */
+}
+
+.scroll-button {
+    display: none; /* Par défaut, les boutons sont masqués */
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 8px;
+    margin: 0 8px;
+}
+
+@media (min-width: 900px) {
+    .scroll-button {
+        display: block; /* Affiche les boutons sur les écrans larges */
+    }
+}
+
+.band-name {
+    font-size: 0.7rem; /* Ajuste la taille du nom du groupe */
+    margin-top: 8px;
+}
+
+.page-name {
+    font-weight: bold;
+    font-size: 1.5rem; /* Ajuste la taille du nom de groupe */
+    text-align: center; /* Centre le texte horizontalement */
+    width: 100%; /* Largeur du paragraphe à 60% de la largeur de l'écran */
+    margin: 0 auto; /* Centre le paragraphe horizontalement */
+    padding: 20px; /* Espace interne pour l'espacement du texte par rapport au fond */
+}
+
+@media (max-width: 770px) {
+    .page-name {
+        width: 100%; /* Largeur du paragraphe à 95% de la largeur de l'écran sur les téléphones */
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+  .introduction-text {
+    width: 100%; /* Largeur du paragraphe à 95% de la largeur de l'écran sur les téléphones */
+  }
+
+  .invitation-text {
+    width: 100%; /* Largeur du paragraphe à 95% de la largeur de l'écran sur les téléphones */
+  }
+}
+
+.invitation-text {
+  width: 60%; /* Largeur du paragraphe à 60% de la largeur de l'écran */
+  margin: 0 auto; /* Centre le paragraphe horizontalement */
+  text-align: center; /* Centre le texte horizontalement */
+  color: #fff; /* Texte en blanc pour une meilleure lisibilité sur fond sombre */
+}
+
+.centerlog {
+  font-family: "Jaini", cursive;
+  font-size: 3rem; /* Ajuste la taille du nom de groupe */
+  letter-spacing: 0.1em; /* Ajoute un espacement entre les lettres */
+  margin: 10px 10px; /* Ajoute un peu de marge en haut et en bas */
+  text-align: center; /* Centre le texte horizontalement */
+}
+
+/* Style de base pour le corps de la page */
+body {
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Fond noir */
+  color: #fff; /* Texte en blanc */
+}
+
+body a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+/* Retirer les styles pour le dropdown */
+
+
+/* Styles de base pour le header */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 200px;
+    background: #000000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.nav,
+.nav .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    justify-content: space-between;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav .logo {
+    font-family: "Jaini", cursive !important; /* Ajout de la police */
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.nav .nav-links {
+    column-gap: 20px;
+    list-style: none;
+}
+
+.nav .nav-links a {
+    transition: all 0.2s linear;
+}
+
+.nav .nav-links a:hover {
+    font-weight: bold;
+}
+
+.nav.openSearch .nav-links a {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav .search-icon {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav .search-box {
+    position: absolute;
+    right: 250px;
+    height: 30px;
+    max-width: 555px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s linear;
+}
+
+.nav.openSearch .search-box {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-form {
+    height: 30px;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    color: #ff0000;
+    transform: translateY(-50%);
+}
+
+.search-box input {
+    height: 100% !important;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 0 15px 0 45px;
+}
+
+.nav .navOpenBtn,
+.nav .navCloseBtn {
+    display: none;
+}
+
+/* responsive */
+@media screen and (max-width: 1160px) {
+    .nav {
+        padding: 15px 100px;
+    }
+    .nav .search-box {
+        right: 150px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .nav {
+        padding: 15px 50px;
+    }
+    .nav .search-box {
+        right: 100px;
+        max-width: 400px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav .navOpenBtn,
+    .nav .navCloseBtn {
+        display: block;
+    }
+    .nav {
+        padding: 15px 20px;
+    }
+    .nav .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        max-width: 280px;
+        width: 100%;
+        padding-top: 100px;
+        row-gap: 30px;
+        flex-direction: column;
+        background-color: #141414;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        z-index: 100;
+    }
+    .nav.openNav .nav-links {
+        left: 0;
+    }
+    .nav .navOpenBtn {
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .nav .navCloseBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .nav .search-box {
+        top: calc(100% + 10px);
+        max-width: calc(100% - 20px);
+        right: 50%;
+        transform: translateX(50%);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 30px;
+    }
+}
+
+/* Ajout de la requête média pour les écrans plus grands */
+@media screen and (min-width: 1200px) {
+    .nav .nav-links {
+        column-gap: 30px; /* Ajustez l'espacement selon vos besoins */
+    }
+}
+
+/* _____________________________________________ */
+
+.logout-link a {
+  color: red !important;
+}
+
+
+@media (max-width: 992px) {
+  .title {
+    width: 80%; /* Largeur du titre à 80% de la largeur de l'écran */
+  }
+}
+
+.login-button a {
+  background-color: green; /* Couleur de fond verte */
+  color: white !important; /* Texte en blanc */
+  font-weight: 400; /* Rend le texte plus gras */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+}
+
+.login-button a:hover {
+  color: darkgreen; /* Couleur de fond plus sombre au survol */
+}
+
+.logout-button a {
+  background-color: rgb(0, 0, 0);
+  color: red !important; /* Texte en blanc */
+  font-weight: 700; /* Rend le texte plus gras */
+  font-size: 1.3em;
+  border: red 2px solid; /* Pas de bordure */
+  border-radius: 25px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+}
+
+.logout-button a:hover {
+  color: darkred; /* Couleur de fond plus sombre au survol */
+}
+
+.edit-profil-button a {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255) !important; /* Texte en blanc */
+  font-weight: 700; /* Rend le texte plus gras */
+  font-size: 1.3em;
+  border: rgb(255, 255, 255) 2px solid; /* Pas de bordure */
+  border-radius: 25px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+}
+
+.edit-profil-button a:hover {
+  color: rgb(255, 255, 255); /* Couleur de fond plus sombre au survol */
+}
+
+/* Style pour le contenu principal */
+.content {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 20px; /* Marge supérieure égale à la hauteur de la navbar */
+  margin-left: 60px; /* Marge à gauche */
+  margin-right: 60px; /* Marge à droite */
+  line-height: 2; /* Augmente l'espacement entre les lignes de texte */
+  font-size: 0.9em; /* Réduit la taille du texte */
+}
+
+@media (max-width: 600px) {
+  .content {
+    margin-left: 0px; /* Réduire la marge à gauche */
+    margin-right: 0px; /* Réduire la marge à droite */
+  }
+}
+
+/* Style pour les liens de la liste de navigation */
+.content a {
+  color: #ffffff; /* Couleur par défaut des liens non visités */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* Style pour les liens visités */
+.content a:visited {
+  color: #ffffff; /* Couleur des liens visités */
+}
+
+/* Style pour les liens au survol */
+.content a:hover {
+  color: #fff; /* Couleur des liens au survol */
+  text-decoration: none;
+}
+
+/* Styles généraux pour les formulaires */
+.form-container {
+  width: 60%; /* Largeur du formulaire */
+  margin: 0 auto; /* Centre le formulaire horizontalement */
+  padding: 20px; /* Espacement intérieur du formulaire */
+  background-color: #000000; /* Couleur de fond */
+  border: 1px solid #000000; /* Bordure */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Couleur de fond gris foncé pour les champs de saisie */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="number"],
+.form-container input[type="url"],
+.form-container input[type="date"],
+.form-container textarea,
+.form-container select {
+  background-color: #141414;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  width: calc(100% - 22px); /* Largeur ajustée pour tenir compte de la marge */
+}
+
+/* Styles pour les messages d'erreur */
+.errorlist {
+  color: red; /* Couleur du message d'erreur */
+  font-size: 0.8rem; /* Taille de police du message d'erreur */
+  margin-top: 4px; /* Espace au-dessus du message d'erreur */
+}
+
+/* Agrandir la zone de texte pour le champ "message" */
+.form-container textarea {
+  height: 150px; /* Hauteur de la zone de texte */
+  resize: vertical; /* Permettre le redimensionnement vertical */
+}
+
+.form-container button {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #4caf50; /* Couleur de fond du bouton */
+  color: white; /* Couleur du texte du bouton */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-container button:hover {
+  background-color: #246227; /* Couleur de fond au survol */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.help-text {
+  text-align: center;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Styles pour les messages de succès */
+.alert-success {
+  color: #11c23b;
+  background-color: #000000;
+  border-color: #000000;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centre le bouton horizontalement */
+  width: 100%; /* Assure que le conteneur prend toute la largeur de l'écran */
+}
+
+.btn-account {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  display: block; /* Changez de inline-block à block pour permettre l'utilisation de margin: 0 auto; */
+  background-color: #141414; /* Couleur de fond verte */
+  color: white !important; /* Texte en blanc */
+  font-weight: 700; /* Rend le texte plus gras */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+  width: fit-content; /* Assure que la largeur du bouton s'adapte à son contenu */
+  margin: 0 auto; /* Ajoutez cette ligne pour centrer le bouton horizontalement */
+}
+
+.btn-account:hover {
+  background-color: #343434;
+}
+
+.sign-up-button {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  display: block; /* Changez de inline-block à block pour permettre l'utilisation de margin: 0 auto; */
+  background-color: rgb(0, 47, 128); /* Couleur de fond verte */
+  color: white !important; /* Texte en blanc */
+  font-weight: 700; /* Rend le texte plus gras */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+  width: fit-content; /* Assure que la largeur du bouton s'adapte à son contenu */
+  margin: 0 auto; /* Ajoutez cette ligne pour centrer le bouton horizontalement */
+}
+
+.sign-up-button:hover {
+  background-color: rgb(12, 1, 123);
+}
+
+.default-button {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  display: block; /* Changez de inline-block à block pour permettre l'utilisation de margin: 0 auto; */
+  background-color: green; /* Couleur de fond verte */
+  color: white !important; /* Texte en blanc */
+  font-weight: 700; /* Rend le texte plus gras */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+  width: fit-content; /* Assure que la largeur du bouton s'adapte à son contenu */
+  margin: 0 auto; /* Ajoutez cette ligne pour centrer le bouton horizontalement */
+}
+
+.default-button:hover {
+  background-color: darkgreen;
+}
+
+.empty-message {
+  color: #888; /* Gris */
+  font-style: italic;
+}
+
+.back-button,
+.update-button,
+.delete-button {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button {
+  background-color: #1d1d1d;
+}
+
+.back-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.update-button {
+  background-color: rgb(1, 87, 1);
+}
+
+.update-button:hover {
+  background-color: rgb(0, 35, 0);
+  color: #fff;
+}
+
+.delete-button {
+  background-color: rgb(133, 2, 2);
+}
+
+.delete-button:hover {
+  background-color: rgb(45, 0, 0);
+  color: #fff;
+}
+
+/* Styles de base pour les boutons de confirmation de suppression de compte */
+.confirm-btn,
+.cancel-btn {
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  min-width: 150px;
+  line-height: 1; /* Normalisation de la hauteur */
+  box-sizing: border-box; /* Inclure le padding et la bordure dans la hauteur et la largeur */
+}
+
+/* Styles spécifiques pour le bouton Yes */
+.confirm-btn {
+  border: 2px solid green;
+  border-radius: 25px;
+}
+
+/* Styles spécifiques pour le bouton Cancel */
+.cancel-btn {
+  border: 2px solid red;
+  border-radius: 25px;
+}
+
+/* Styles au survol pour le bouton Yes */
+.confirm-btn:hover {
+  background-color: green;
+}
+
+/* Styles au survol pour le bouton Cancel */
+.cancel-btn:hover {
+  background-color: red;
+}
+
+.index {
+  text-align: center; /* Centre le texte horizontalement */
+  margin: 20px 0; /* Ajoute un peu de marge en haut et en bas */
+}
+
+.index a {
+  color: gray; /* Change la couleur du texte en gris */
+  text-decoration: none; /* Supprime le soulignement des liens */
+  margin: 0 5px; /* Ajoute un peu de marge entre les lettres */
+}
+
+.index a:hover {
+  color: rgb(
+    255,
+    255,
+    255
+  ); /* Change la couleur du texte en noir lors du survol */
+}
+
+/* Style pour le nom du groupe en italique */
+em {
+  font-style: italic;
+}
+
+/* Style pour les titres des données (Venue, Price, Description) en gras */
+ul li strong {
+  font-weight: bold;
+}
+
+/* Style pour la première ligne des événements */
+.event-date {
+  font-size: 1.2em; /* Augmente la taille de la police */
+}
+
+.event-item {
+  margin-bottom: 30px; /* Ajoute une marge en bas de chaque élément d'événement */
+}
+
+/* Style pour l'index des événements */
+.event-index {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.event-index li {
+  margin: 0 10px;
+}
+
+.event-index a {
+  text-decoration: none;
+  color: #505050;
+  font-weight: bold;
+}
+
+.event-index a:hover {
+  text-decoration: underline;
+}
+
+/* Nouveaux styles pour centrer et encadrer les événements */
+.event-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+  width: 85%; /* Largeur de la ligne pour les écrans d'ordinateur */
+  margin: 0 auto;
+}
+
+.event-border {
+  background-color: #141414;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%; /* Largeur par défaut pour les petits écrans */
+  text-align: center;
+}
+
+/* Style pour le lien d'événement */
+.event-link-container {
+  display: block;
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: white 2px solid;
+  background-color: rgb(30, 30, 30);
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0px; /* Ajustez cette valeur selon vos besoins */
+}
+
+.event-link-container a {
+  display: block;
+  text-decoration: none !important;
+  color: white !important;
+  transition: background-color 0.3s, color 0.3s !important;
+}
+
+.event-link-container:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.event-link-container:hover a {
+  color: black;
+}
+
+/* Retirer les puces de liste pour les événements */
+.event-border ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Centrer la date et le nom du groupe, aligner Venue et Price sur la même ligne, et coller Description à gauche */
+.event-border strong {
+  display: block;
+  text-align: center;
+}
+
+.event-border ul li:nth-child(3) {
+  margin-top: 10px;
+}
+
+/* Centrer les boutons Update et Delete */
+.event-border .update-button-small,
+.event-border .delete-button-small {
+  display: block;
+  margin: 10px auto;
+}
+
+/* Remplace event-container par band-container */
+.band-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+  width: 85%; /* Largeur de la ligne pour les écrans d'ordinateur */
+  margin: 0 auto;
+}
+
+/* Remplace event-border par band-border et aligne le texte à gauche */
+.band-border {
+  background-color: #141414;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%; /* Largeur par défaut pour les petits écrans */
+  text-align: left; /* Aligne le texte à gauche */
+}
+
+/* Style pour le lien d'événement */
+.event-link-container {
+  display: block;
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: white 2px solid;
+  background-color: rgb(30, 30, 30);
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0px; /* Ajustez cette valeur selon vos besoins */
+}
+
+.event-link-container a {
+  display: block;
+  text-decoration: none !important;
+  color: white !important;
+  transition: background-color 0.3s, color 0.3s !important;
+}
+
+.event-link-container:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.event-link-container:hover a {
+  color: black;
+}
+
+/* Retirer les puces de liste pour les événements */
+.event-border ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Centrer les boutons Update et Delete */
+.event-border .update-button-small,
+.event-border .delete-button-small {
+  display: block;
+  margin: 10px auto;
+}
+
+/* Media query pour les écrans d'ordinateur */
+@media (min-width: 769px) {
+  .band-border {
+    width: 43%; /* Deux événements par ligne */
+    margin: 1%;
+  }
+}
+
+/* Media query pour les écrans d'ordinateur */
+@media (min-width: 769px) {
+  .event-border {
+    width: 43%; /* Deux événements par ligne */
+    margin: 1%;
+  }
+}
+
+/* static/listings/styles.css */
+.centered-image {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+.messages {
+  list-style: none;
+  padding: 0;
+}
+
+.messages .success {
+  color: green;
+}
+
+.update-button-small,
+.delete-button-small {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  display: inline-block;
+  padding: 5px 10px; /* Réduit le padding pour rendre les boutons plus petits */
+  margin: 5px 0;
+  text-decoration: none; /* Ajoutez cette ligne pour s'assurer qu'il n'y a pas de soulignement par défaut */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.update-button-small {
+  background-color: rgb(0, 0, 0);
+  border: 3px solid darkgreen;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.9rem; /* Réduit la taille de la police pour rendre les boutons plus petits */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.update-button-small:hover {
+  background-color: darkgreen;
+  color: #fff;
+  text-decoration: none; /* Ajoutez cette ligne pour retirer le soulignement au survol */
+}
+
+.update-button-small:visited {
+  color: #fff;
+}
+
+.delete-button-small {
+  background-color: rgb(0, 0, 0);
+  border: 3px solid darkred;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.9rem; /* Réduit la taille de la police pour rendre les boutons plus petits */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-button-small:hover {
+  background-color: darkred;
+  color: #fff;
+  text-decoration: none; /* Ajoutez cette ligne pour retirer le soulignement au survol */
+}
+
+.delete-button-small:visited {
+  color: #fff;
+}
+
+/* Styles for the delete button */
+.ultime-delete-button {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 0.8em;
+  font-style: normal;
+  color: rgb(255, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.ultime-delete-button:hover {
+  color: darkred;
+}
+
+/* Styles for the cancel button */
+.ultime-cancel-button {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 0.8em;
+  font-style: normal;
+  color: green;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.ultime-cancel-button:hover {
+  color: darkgreen;
+}
+
+.form-login {
+  width: 60%; /* Largeur du formulaire */
+  margin: 0 auto; /* Centre le formulaire horizontalement */
+  padding: 20px; /* Espacement intérieur du formulaire */
+  background-color: #000000; /* Couleur de fond */
+  border: 1px solid #000000; /* Bordure */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+.form-login .input-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-login .input-group input[type="text"],
+.form-login .input-group input[type="password"] {
+  flex: 1; /* Permet aux champs de saisie de prendre autant d'espace que possible */
+  padding: 10px;
+  margin: 0 10px; /* Marge entre les deux champs de saisie */
+  border: 1px solid #333; /* Bordure grise foncée */
+  border-radius: 4px;
+  background-color: #333; /* Fond gris foncé */
+  color: white; /* Texte en blanc pour contraste */
+}
+
+.form-login button {
+  display: block; /* Changez de inline-block à block pour permettre l'utilisation de margin: 0 auto; */
+  margin: 0 auto; /* Centre le bouton horizontalement */
+  font-family: "Lekton", monospace;
+  font-size: 1.2em; /* Texte légèrement plus grand */
+  text-align: center;
+  background-color: green;
+  color: white !important; /* Texte en blanc */
+  font-weight: 700; /* Rend le texte plus gras */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+}
+
+.form-login button:hover {
+  background-color: darkgreen; /* Couleur de fond au survol */
+}
+
+.form-login button.logout-button {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  display: block; /* Changez de inline-block à block pour permettre l'utilisation de margin: 0 auto; */
+  margin: 0 auto; /* Centre le bouton horizontalement */
+  font-family: "Lekton", monospace;
+  font-size: 1.2em; /* Texte légèrement plus grand */
+  text-align: center;
+  background-color: red;
+  color: white !important; /* Texte en blanc */
+  font-weight: 700; /* Rend le texte plus gras */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Bords arrondis */
+  padding: 5px 20px; /* Espacement interne */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+}
+
+.form-login button.logout-button:hover {
+  background-color: darkred; /* Couleur de fond plus sombre au survol */
+}
+
+.form-login .success-message {
+  color: green; /* Couleur du texte vert */
+  text-align: center; /* Centrer le texte horizontalement */
+  margin: 10px 0; /* Ajouter un peu de marge en haut et en bas */
+}
+
+.form-login .error-message {
+  color: red; /* Couleur du texte rouge */
+  text-align: center; /* Centrer le texte horizontalement */
+  margin: 10px 0; /* Ajouter un peu de marge en haut et en bas */
+}
+
+/* Nouvelles classes pour le formulaire d'inscription */
+.form-signup {
+  width: 60%; /* Largeur du formulaire */
+  margin: 0 auto; /* Centre le formulaire horizontalement */
+  padding: 20px; /* Espacement intérieur du formulaire */
+  background-color: #000000; /* Couleur de fond */
+  border: 1px solid #000000; /* Bordure */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+.form-signup .input-group {
+  display: flex;
+  flex-direction: column; /* Les éléments seront empilés verticalement */
+  margin-bottom: 20px;
+}
+
+/* Media query pour les tablettes et les écrans plus petits */
+@media (max-width: 768px) {
+  .form-container,
+  .form-signup {
+    width: 100%; /* Les formulaires occupent 80% de la largeur de l'écran */
+  }
+
+  .form-container label,
+  .form-signup .input-group label {
+    font-size: 0.8em; /* Réduit la taille du texte d'information */
+  }
+
+  .form-container .input-group,
+  .form-signup .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les champs de saisie horizontalement */
+    margin-bottom: 20px;
+  }
+
+  .form-container .input-group input[type="text"],
+  .form-container .input-group input[type="email"],
+  .form-container .input-group input[type="password"],
+  .form-signup .input-group input[type="text"],
+  .form-signup .input-group input[type="email"],
+  .form-signup .input-group input[type="password"] {
+    width: 90%; /* Les champs de saisie occupent 80% de la largeur du conteneur */
+  }
+
+  .introduction-text {
+    width: 90%; /* Largeur du paragraphe à 60% de la largeur de l'écran */
+  }
+
+  .form-signup .input-group input[type="text"],
+  .form-signup .input-group input[type="password"],
+  .form-signup .input-group input[type="email"] {
+    flex: 1; /* Permet aux champs de saisie de prendre autant d'espace que possible */
+    padding: 10px;
+    margin-bottom: 10px; /* Marge en bas pour séparer les champs */
+    border: 1px solid #333; /* Bordure grise foncée */
+    border-radius: 4px;
+    background-color: #333; /* Fond gris foncé */
+    color: white; /* Texte en blanc pour contraste */
+  }
+
+  .form-signup button {
+    display: block; /* Changez de inline-block à block pour permettre l'utilisation de margin: 0 auto; */
+    margin: 0 auto; /* Centre le bouton horizontalement */
+    font-family: "Lekton", monospace;
+    font-size: 1.2em; /* Texte légèrement plus grand */
+    text-align: center;
+    background-color: green;
+    color: white !important; /* Texte en blanc */
+    font-weight: 700; /* Rend le texte plus gras */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Bords arrondis */
+    padding: 5px 20px; /* Espacement interne */
+    text-decoration: none; /* Pas de soulignement */
+    transition: background-color 0.3s, color 0.3s; /* Transition en douceur */
+  }
+
+  .form-signup button:hover {
+    background-color: darkgreen; /* Couleur de fond au survol */
+  }
+
+  .event-link-container {
+    display: inline-block !important;
+    padding: 5px 10px !important;
+    border-radius: 15px !important;
+    background-color: rgb(30, 30, 30) !important;
+    transition: background-color 0.3s, color 0.3s !important;
+  }
+
+  .event-link-container a {
+    text-decoration: none !important;
+    color: white !important;
+    transition: background-color 0.3s, color 0.3s !important;
+  }
+
+  .event-link-container:hover {
+    background-color: white !important;
+  }
+
+  .event-link-container:hover a {
+    color: black !important;
+  }
+}
+.container {
+  max-width: 1000px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+}
+
+.column-container {
+  display: flex;
+  justify-content: space-between;
+}
+.column {
+  flex: 1;
+  margin-right: 20px;
+}
+.column:last-child {
+  margin-right: 0;
+}
+.column ul {
+  list-style-type: none;
+  padding: 0;
+}
+.column li {
+  margin-bottom: 10px;
+}
+.separator {
+  border-left: 1px solid #ccc;
+  height: 100%;
+  margin: 0 20px;
+}
+
+@media (max-width: 600px) {
+  .column-container {
+    flex-direction: column;
+  }
+  .column {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .separator {
+    border-left: none;
+    border-top: 1px solid #ccc;
+    height: 1px;
+    margin: 20px 0;
+  }
+}
+
+/* Styles pour le footer en position fixe */
+.footer-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    padding: 10px 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-nav-icon {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-nav-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Styles for the pop-up window */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    padding: 60px;
+    text-align: left;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.popup-content button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #295c2f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.popup-content button:hover {
+    background-color: #35763d;
+}
+
+.popup-content button img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Media query for small screens (e.g., phones) */
+@media (max-width: 600px) {
+    .popup-content {
+        width: 90%; /* Adjust width to 90% for small screens */
+    }
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.responsive-gif {
+    width: 100%; /* Pour les téléphones */
+    max-width: 100%;
+}
+
+@media (min-width: 600px) {
+    .responsive-gif {
+        width: 75%; /* Pour les tablettes */
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-gif {
+        width: 50%; /* Pour les ordinateurs */
+    }
+}
+
+.profile-photo-container {
+    text-align: center;
+}
+
+.profile-photo {
+    width: 100px; /* Ajustez la taille selon vos besoins */
+    height: 100px; /* Ajustez la taille selon vos besoins */
+    border-radius: 50%; /* Pour rendre l'image circulaire, si vous le souhaitez */
+    margin-bottom: 10px; /* Espacement en dessous de l'image */
+}
+
+.search-item-container {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.search-image-container {
+    width: 95%; /* Occupe 95% de la largeur du conteneur parent */
+    padding-top: 80%; /* Pour maintenir le format carré (1:1) */
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto; /* Centre l'image dans le conteneur */
+}
+
+.search-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Rogne l'image pour qu'elle remplisse le conteneur tout en conservant son rapport d'aspect */
+}
+
+.band-name, .listing-name {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.band-detail-image-container {
+    width: 95%; /* Pour les téléphones */
+    padding-top: 95%; /* Pour maintenir le format carré (1:1) */
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto; /* Centre l'image dans le conteneur */
+}
+
+.band-detail-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Rogne l'image pour qu'elle remplisse le conteneur tout en conservant son rapport d'aspect */
+}
+
+@media (min-width: 768px) { /* Pour les tablettes et les ordinateurs */
+    .band-detail-image-container {
+        width: 35%;
+        padding-top: 35%; /* Pour maintenir le format carré (1:1) */
+    }
+}
+
+/* Chat container */
+.chat-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh; /* Adjust as needed */
+}
+
+/* Message container */
+.chat-message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto; /* Scroll for older messages */
+    flex-grow: 1;
+    padding-bottom: 20px; /* Space for the fixed textarea */
+}
+
+/* Message styles */
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    word-wrap: break-word; /* Allow word wrap */
+    overflow-wrap: break-word; /* Allow word wrap */
+}
+
+.chat-message.received {
+    align-self: flex-start;
+    background: linear-gradient(to top, #8a8a8a47, #141414); /* Gradient from red to blue */
+    border-bottom-left-radius: 0;
+}
+
+.chat-message.sent {
+    align-self: flex-end;
+    background: linear-gradient(to top, #870000, #141414); /* Gradient from red to blue */
+    border-bottom-right-radius: 0;
+}
+
+.chat-message-header {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.chat-message-body {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Reply form */
+.chat-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background-color: #000000;
+    padding: 10px;
+    border-top: 1px solid #333333;
+}
+
+.chat-form textarea {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    resize: none; /* Prevent resizing */
+    background-color: #1a1a1a;
+    color: #ffffff;
+    height: 50px; /* Fixed height */
+    font-family: "Poppins", sans-serif; /* New font family */
+}
+
+.chat-btn-send {
+    background-color: #000000; /* Black background */
+    border: none;
+    cursor: pointer;
+    height: 50px; /* Same height as textarea */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.chat-btn-send-img {
+    height: 20px; /* Adjust as needed */
+    width: auto;
+}
+
+.list-group {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-group-item {
+    padding: 15px;
+    width: 100%;
+    max-width: 100%; /* Pour les téléphones */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+.message-info {
+    color: #d2d2d2;
+    font-size: 0.9em;
+}
+
+.message-preview {
+    word-wrap: break-word; /* Permet le retour à la ligne */
+    overflow-wrap: break-word; /* Permet le retour à la ligne */
+    white-space: pre-wrap; /* Préserve les sauts de ligne et permet le retour à la ligne */
+    border-radius: 15px;
+    max-width: 100%;
+    max-height: 50px; /* Hauteur maximale pour la bulle */
+    display: flex;
+    align-items: center; /* Centre le texte verticalement */
+    justify-content: flex-start; /* Aligne le texte à gauche */
+}
+
+.message-preview.sent {
+    background: linear-gradient(to top, #870000, #2c2c6b); /* Gradient from red to blue */
+    color: #ffffff;
+    align-self: flex-end;
+}
+
+.message-preview.received {
+    background: linear-gradient(to top, #8a8a8a47, #141414); /* Gradient from red to blue */
+    color: #ffffff;
+    align-self: flex-start;
+}
+
+/* Conversation list styles */
+.conv-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.conv-list-item {
+    padding: 15px;
+    width: 100%;
+    max-width: 100%; /* Pour les téléphones */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    border-bottom: 1px solid #333333;
+}
+
+.conv-list-item:last-child {
+    border-bottom: none;
+}
+
+.conv-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.msg-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-name {
+    color: #ffffff;
+    font-size: 1.1em;
+}
+
+.msg-date {
+    color: #cccccc;
+    font-size: 0.9em;
+}
+
+.msg-preview {
+    word-wrap: break-word; /* Permet le retour à la ligne */
+    overflow-wrap: break-word; /* Permet le retour à la ligne */
+    white-space: pre-wrap; /* Préserve les sauts de ligne et permet le retour à la ligne */
+    border-radius: 15px;
+    max-width: 100%;
+    max-height: 50px; /* Hauteur maximale pour la bulle */
+    display: flex;
+    align-items: center; /* Centre le texte verticalement */
+    justify-content: flex-start; /* Aligne le texte à gauche */
+    color: #ffffff;
+}
+
+.msg-preview.sent {
+    background: linear-gradient(to top, #870000, #2c2c6b); /* Gradient from red to blue */
+    align-self: flex-end;
+}
+
+.msg-preview.received {
+    background: linear-gradient(to top, #8a8a8a47, #141414); /* Gradient from red to blue */
+    align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+    .list-group-item {
+        max-width: 50%; /* Pour les tablettes et ordinateurs */
+    }
+}
+
+.ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px; /* Ajoute un espacement à gauche et à droite */
+}
+
+.event-date {
+    margin: 0;
+}
+
+.ad-description {
+    text-align: left; /* Aligne le texte à gauche */
+    padding: 0 10px; /* Ajoute un espacement à gauche et à droite */
+}
