@@ -4,12 +4,12 @@
 
 
 # North Underground Bands (N.U.B)
-Welcome to this repository dedicated to my first side-project as a programming student.
-I transformed the project into a web application akin to a social network. The primary goal of this network is to share groups from the Lille underground music scene. A user can authenticate to share various information about a music group, such as contact details, merchandise, and events using typical "CRUD" operations.
 
+Welcome to this repository dedicated to my first mission as a programming student. I transformed the project into a web application akin to a social network. The primary goal of this network is to share groups from the Lille underground music scene. A user can authenticate to share various information about a music group, such as contact details, merchandise, and events using typical "CRUD" operations.
 
-For now, I've named this interface N.U.B for "North Underground Bands". Feel free to explore the site and navigate through structured data.
+I've named this interface N.U.B for "North Underground Bands". Feel free to explore the site and navigate through structured data.
 
+🚀 **Check out the live application here:** [N.U.B - North Underground Bands](https://nub-3d9824fd9adf.herokuapp.com/)
 
 I am open to any suggestions for improvement!
 
